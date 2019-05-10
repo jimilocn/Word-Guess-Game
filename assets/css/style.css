@@ -6,8 +6,12 @@ body {
 }
 
 #background {
-    height: 250px;
+    height: 240px;
     Width: 500px;
     margin-top: 20px;
     margin-left: 0;
+}
+
+.container {
+    padding:10px;
 }

@@ -23,32 +23,59 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div> </div>
+            <div class="col-md-5">
+                <div></div>
             </div>
-            <div class="col-md-6">
-                <h2>Press anything to start game!</h2>
+            <div class="col-md-7">
+                <h2>Press anything key to get started!</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div></div>
             </div>
+            <div class="col-md-6">
+                <h3>Explore and neighborhood!</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7"></div>
             <div class="col-md-5">
-                <h3>Current word</h3>
+                <div id=guesses></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div>
+                    <h3>Number of guesses remaining</h3>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8"></div>
             <div class="col-md-4">
-                <div id=guesses></div>
+                <div id=guessesLeft></div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <div>
+                    <h3>Letters already guessed</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <div id=lettersGuessed></div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript">
-
-        var wordOptions = [
+        // var inspired by the pseudocode from Professor Phil
+        var neighborhoodOptions = [
             "Streeterville",
             "Wrigleyville",
             "Andersonville",
@@ -64,7 +91,106 @@
             "Ravenswood",
         ];
 
-    </script>
+        var computerRandIndex = math.floor(math.random() * neighborhoodOptions.length);
+
+        var computerPickWord = neighborhoodOptions[computerRandIndex];
+
+        var numberofGuessCount = 9
+
+        var wins = 0;
+
+        var losses = 0;
+
+        var wrongGuessLetter = "";
+
+        var rightGuessLetter = "";
+
+        var boardGame = [];
+
+        for (var i = 0; i < computerPickWord; i++) {
+            boardGame[i] = "_";
+        }
+
+        var userInput = "";
+
+        function resetGame() {
+            var neighborhoodOptions = [
+                "Streeterville",
+                "Wrigleyville",
+                "Andersonville",
+                "Edgewater",
+                "Chinatown",
+                "Englewood",
+                "Pilson",
+                "Bucktown",
+                "Bronzeville",
+                "Boystown",
+                "Bucktown",
+                "Greektown",
+                "Ravenswood",
+            ];
+
+            var computerRandIndex = math.floor(math.random() * neighborhoodOptions.length);
+
+            var computerPickWord = neighborhoodOptions[computerRandIndex];
+
+            var numberofGuessCount = 9
+
+            var wins = 0;
+
+            var losses = 0;
+
+            var wrongGuessLetter = "";
+
+            var rightGuessLetter = "";
+
+            var boardGame = [];
+
+            for (var i = 0; i < computerPickWord; i++) {
+                boardGame[i] = "_";
+            }
+
+            var userInput = "";
+        }
+
+
+
+        document.onkeyup = function (event) {
+
+            userInput = event.key.toLowerCase();
+
+
+            var displayBoardDiv = document.getElementbyID("guesses");
+            displayBoardDiv.textContent = boardGame.join("");
+
+
+
+            if (computerPickWord.indexOf(userInput) > -1) {
+
+                boardGame[computerPickWord.indexOf(userInput)] = userInput;
+                displayBoard.textContent = boardGame.join("guesses");
+
+                rightGuessLetter = rightGuessLetter + userInput;
+            }
+            if (computerPickWord === rightGuessLetter) {
+
+                wins++;
+                resetGame();
+            }
+            else {
+                numberofGuessCount = numberofGuessCount - 1;
+                wrongGuessLetter = wrongGuessLetter + userInput + ",";
+                var outputWrongDiv = document.getElementbyID("lettersGuessed");
+                outputWrongDiv.textContext = wrongGuessLetter;
+
+
+                if (numberofGuessCount === 0) {
+                    loss++;
+                    resetGame();
+                }
+
+            }
+        }</script>
 </body>
 
 </html>
