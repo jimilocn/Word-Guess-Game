@@ -1,0 +1,15 @@
+var wordOptions = [
+  "Streeterville",
+  "Wrigleyville",
+  "Andersonville",
+  "Edgewater",
+  "Chinatown",
+  "Englewood",
+  "Pilson",
+  "Bucktown",
+  "Bronzeville",
+  "Boystown",
+  "Bucktown",
+  "Greektown",
+  "Ravenswood",
+];
