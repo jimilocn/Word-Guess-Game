@@ -1,4 +1,5 @@
 // var inspired by the pseudocode from Professor Phil
+console.log("boom");
 var neighborhoodOptions = [
   "Streeterville",
   "Wrigleyville",
@@ -15,7 +16,7 @@ var neighborhoodOptions = [
   "Ravenswood",
 ];
 
-var computerRandIndex = math.floor(math.random() * neighborhoodOptions.length);
+var computerRandIndex = Math.floor(Math.random() * neighborhoodOptions.length);
 
 var computerPickWord = neighborhoodOptions[computerRandIndex];
 
@@ -29,12 +30,10 @@ var wrongGuessLetter = "";
 
 var rightGuessLetter = "";
 
-var boardGame = [];
-
+var boardGame = []; 
 for (var i = 0; i < computerPickWord; i++) {
   boardGame[i] = "_";
 }
-
 var userInput = "";
 
 function resetGame() {
@@ -54,7 +53,7 @@ function resetGame() {
     "Ravenswood",
   ];
 
-  var computerRandIndex = math.floor(math.random() * neighborhoodOptions.length);
+  var computerRandIndex = [Math.floor(Math.random() * neighborhoodOptions.length)];
 
   var computerPickWord = neighborhoodOptions[computerRandIndex];
 
@@ -70,7 +69,7 @@ function resetGame() {
 
   var boardGame = [];
 
-  for (var i = 0; i < computerPickWord; i++) {
+  for (var i = 0; i < neighborhoodOptions; i++) {
     boardGame[i] = "_";
   }
 
@@ -84,7 +83,7 @@ document.onkeyup = function (event) {
   userInput = event.key.toLowerCase();
 
 
-  var displayBoardDiv = document.getElementbyID("guesses");
+  var displayBoardDiv = document.getElementById("guesses");
   displayBoardDiv.textContent = boardGame.join("");
 
 
@@ -92,26 +91,25 @@ document.onkeyup = function (event) {
   if (computerPickWord.indexOf(userInput) > -1) {
 
     boardGame[computerPickWord.indexOf(userInput)] = userInput;
-    displayBoard.textContent = boardGame.join("guesses");
+    displayBoard.textContent = boardGame.join("");
 
     rightGuessLetter = rightGuessLetter + userInput;
   }
-    if (computerPickWord === rightGuessLetter) {
+  if (computerPickWord === rightGuessLetter) {
 
-      wins++;
+    wins++;
+    resetGame();
+  }
+  else {
+    numberofGuessCount = numberofGuessCount - 1;
+    wrongGuessLetter = wrongGuessLetter + userInput + ",";
+    var outputWrongDiv = document.getElementById("lettersGuessed");
+    outputWrongDiv.textContext = wrongGuessLetter;
+  }
+
+    if (numberofGuessCount === 0) {
+      loss++;
       resetGame();
     }
-    else {
-      numberofGuessCount = numberofGuessCount - 1;
-      wrongGuessLetter = wrongGuessLetter + userInput + ",";
-      var outputWrongDiv = document.getElementbyID("lettersGuessed");
-      outputWrongDiv.textContext = wrongGuessLetter;
 
-
-      if (numberofGuessCount === 0) {
-        loss++;
-        resetGame();
-      }
-
-    }
   }
