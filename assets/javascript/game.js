@@ -112,10 +112,10 @@ document.onkeyup = function (event) {
     displayBoardDiv.textContent = boardGame.join("");
 
     rightGuessLetter = rightGuessLetter + userInput;
-   
+
     console.log("boom");
   }
-  
+
 
 
   if (computerPickWord === rightGuessLetter) {
@@ -131,7 +131,7 @@ document.onkeyup = function (event) {
     numberofGuessCount = numberofGuessCount - 1;
     guessCountDiv.textContent = numberofGuessCount;
     wrongGuessLetter = wrongGuessLetter + userInput + ",";
-    outputWrongDiv.textContext = wrongGuessLetter;
+    outputWrongDiv.textContent = wrongGuessLetter;
     console.log(wrongGuessLetter);
   }
 
