@@ -15,3 +15,7 @@ body {
 .container {
     padding:10px;
 }
+
+#guesses, #lettersGuessed, #guessesLeft {
+height:40px;
+}

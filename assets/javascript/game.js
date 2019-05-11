@@ -1,26 +1,31 @@
 // var inspired by the pseudocode from Professor Phil
 console.log("boom");
 var neighborhoodOptions = [
-  "Streeterville",
-  "Wrigleyville",
-  "Andersonville",
-  "Edgewater",
-  "Chinatown",
-  "Englewood",
-  "Pilson",
-  "Bucktown",
-  "Bronzeville",
-  "Boystown",
-  "Bucktown",
-  "Greektown",
-  "Ravenswood",
+  // "streeterville",
+  // "wrigleyville",
+  // "andersonville",
+  // "edgewater",
+  // "chinatown",
+  // "englewood",
+  "pilson",
+  // "bucktown",
+  // "bronzeville",
+  // "boystown",
+  // "bucktown",
+  // "greektown",
+  // "ravenswood",
 ];
 
 var computerRandIndex = Math.floor(Math.random() * neighborhoodOptions.length);
+console.log(computerRandIndex);
 
 var computerPickWord = neighborhoodOptions[computerRandIndex];
+console.log(computerPickWord);
 
-var numberofGuessCount = 9
+var numberofGuessCount = 9;
+numberofGuessCount = document.getElementById("guessesLeft");
+console.log(numberofGuessCount);
+
 
 var wins = 0;
 
@@ -30,34 +35,42 @@ var wrongGuessLetter = "";
 
 var rightGuessLetter = "";
 
-var boardGame = []; 
+var boardGame = [];
 for (var i = 0; i < computerPickWord; i++) {
   boardGame[i] = "_";
 }
+
 var userInput = "";
 
 function resetGame() {
+
+  console.log("boom");
   var neighborhoodOptions = [
-    "Streeterville",
-    "Wrigleyville",
-    "Andersonville",
-    "Edgewater",
-    "Chinatown",
-    "Englewood",
-    "Pilson",
-    "Bucktown",
-    "Bronzeville",
-    "Boystown",
-    "Bucktown",
-    "Greektown",
-    "Ravenswood",
+    // "streeterville",
+    // "wrigleyville",
+    // "andersonville",
+    // "edgewater",
+    // "chinatown",
+    // "englewood",
+    "pilson",
+    // "bucktown",
+    // "bronzeville",
+    // "boystown",
+    // "bucktown",
+    // "greektown",
+    // "ravenswood",
   ];
 
-  var computerRandIndex = [Math.floor(Math.random() * neighborhoodOptions.length)];
+  var computerRandIndex = Math.floor(Math.random() * neighborhoodOptions.length);
+  console.log(computerRandIndex);
 
   var computerPickWord = neighborhoodOptions[computerRandIndex];
+  console.log(computerPickWord);
 
-  var numberofGuessCount = 9
+  var numberofGuessCount = 9;
+  numberofGuessCount = document.getElementById("guessesLeft");
+  console.log(numberofGuessCount);
+
 
   var wins = 0;
 
@@ -68,8 +81,7 @@ function resetGame() {
   var rightGuessLetter = "";
 
   var boardGame = [];
-
-  for (var i = 0; i < neighborhoodOptions; i++) {
+  for (var i = 0; i < computerPickWord; i++) {
     boardGame[i] = "_";
   }
 
@@ -84,20 +96,24 @@ document.onkeyup = function (event) {
 
 
   var displayBoardDiv = document.getElementById("guesses");
-  displayBoardDiv.textContent = boardGame.join("");
 
+  displayBoardDiv.textContent = boardGame.join("");
+  // guessCountText.textContent = numberofGuessCount;  
 
 
   if (computerPickWord.indexOf(userInput) > -1) {
 
     boardGame[computerPickWord.indexOf(userInput)] = userInput;
-    displayBoard.textContent = boardGame.join("");
+    displayBoardDiv.textContent = boardGame.join(" ");
 
     rightGuessLetter = rightGuessLetter + userInput;
   }
+
   if (computerPickWord === rightGuessLetter) {
 
     wins++;
+    var winsText = document.getElementById("wins");
+    winsText.textContent = "wins: " + wins;
     resetGame();
   }
   else {
@@ -107,9 +123,11 @@ document.onkeyup = function (event) {
     outputWrongDiv.textContext = wrongGuessLetter;
   }
 
-    if (numberofGuessCount === 0) {
-      loss++;
-      resetGame();
-    }
-
+  if (numberofGuessCount === 0) {
+    loss++;
+    var lossesText = document.getElementById("losses");
+    lossesText.textContent = "losses: " + losses;
+    resetGame();
   }
+
+}
