@@ -19,3 +19,15 @@ body {
 #guesses, #lettersGuessed, #guessesLeft {
 height:40px;
 }
+
+h1 {
+    color:#540564;
+}
+
+h2 {
+    color: #9e150b;
+}
+
+h4 {
+    color: #065674;
+}
