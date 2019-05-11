@@ -1,7 +1,7 @@
 // var inspired by the pseudocode from Professor Phil
 console.log("boom");
 var neighborhoodOptions = [
-  // "streeterville",
+  "streeterville",
   // "wrigleyville",
   // "andersonville",
   // "edgewater",
@@ -24,10 +24,6 @@ console.log(computerPickWord);
 
 var numberofGuessCount = 9;
 
-
-console.log(numberofGuessCount);
-
-
 var wins = 0;
 
 var losses = 0;
@@ -38,7 +34,7 @@ var rightGuessLetter = "";
 
 var boardGame = [];
 
-for (var i = 0; i < computerPickWord; i++) {
+for (var i = 0; i < computerPickWord.length; i++) {
   boardGame[i] = "_";
 }
 
@@ -47,7 +43,7 @@ var userInput = "";
 function resetGame() {
 
   var neighborhoodOptions = [
-    // "streeterville",
+    "streeterville",
     // "wrigleyville",
     // "andersonville",
     // "edgewater",
@@ -62,28 +58,24 @@ function resetGame() {
     // "ravenswood",
   ];
 
-  var computerRandIndex = Math.floor(Math.random() * neighborhoodOptions.length);
+  computerRandIndex = Math.floor(Math.random() * neighborhoodOptions.length);
   console.log(computerRandIndex);
 
-  var computerPickWord = neighborhoodOptions[computerRandIndex];
+  computerPickWord = neighborhoodOptions[computerRandIndex];
   console.log(computerPickWord);
 
-  var numberofGuessCount = 9;
+  numberofGuessCount = 9;
 
-  var wins = 0;
+  wrongGuessLetter = "";
 
-  var losses = 0;
+  rightGuessLetter = "";
 
-  var wrongGuessLetter = "";
-
-  var rightGuessLetter = "";
-
-  var boardGame = [];
+  boardGame = [];
   for (var i = 0; i < computerPickWord; i++) {
     boardGame[i] = "_";
   }
 
-  var userInput = "";
+  userInput = "";
 
 
 }
