@@ -18,10 +18,18 @@ body {
     padding:10px;
 }
 
-#guesses, #lettersGuessed, #guessesLeft, #wins, #losses {
+#guesses, #lettersGuessed, #guessesLeft {
 height:40px;
 font-size: 25px;
 font-family: 'Baloo Bhai', cursive;
+}
+
+
+#wins, #losses {
+    color:#d3ad03;
+    font-size: 20px;
+font-family: 'Baloo Bhai', cursive;
+
 }
 
 h1 {

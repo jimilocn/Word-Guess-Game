@@ -1,19 +1,22 @@
 // var inspired by the pseudocode from Professor Phil
-console.log("boom");
+// things to do: 1. display "_" right away; 2. find multiple letters within the array; 3. correct guesses do not change the number count 4. non letter keys do not
+
+
+
 var neighborhoodOptions = [
   "streeterville",
-  // "wrigleyville",
-  // "andersonville",
-  // "edgewater",
-  // "chinatown",
-  // "englewood",
+  "wrigleyville",
+  "andersonville",
+  "edgewater",
+  "chinatown",
+  "englewood",
   "pilson",
-  // "bucktown",
-  // "bronzeville",
-  // "boystown",
-  // "bucktown",
-  // "greektown",
-  // "ravenswood",
+  "bucktown",
+  "bronzeville",
+  "boystown",
+  "bucktown",
+  "greektown",
+  "ravenswood",
 ];
 
 var computerRandIndex = Math.floor(Math.random() * neighborhoodOptions.length);
@@ -44,18 +47,18 @@ function resetGame() {
 
   var neighborhoodOptions = [
     "streeterville",
-    // "wrigleyville",
-    // "andersonville",
-    // "edgewater",
-    // "chinatown",
-    // "englewood",
+    "wrigleyville",
+    "andersonville",
+    "edgewater",
+    "chinatown",
+    "englewood",
     "pilson",
-    // "bucktown",
-    // "bronzeville",
-    // "boystown",
-    // "bucktown",
-    // "greektown",
-    // "ravenswood",
+    "bucktown",
+    "bronzeville",
+    "boystown",
+    "bucktown",
+    "greektown",
+    "ravenswood",
   ];
 
   computerRandIndex = Math.floor(Math.random() * neighborhoodOptions.length);
@@ -72,7 +75,7 @@ function resetGame() {
 
   boardGame = [];
   for (var i = 0; i < computerPickWord; i++) {
-    boardGame[i] = "_";
+    boardGame[i] = " _ ";
   }
 
   userInput = "";
@@ -98,16 +101,21 @@ document.onkeyup = function (event) {
   // guessCountText.textContent = numberofGuessCount;  
 
 
-  if (computerPickWord.indexOf(userInput) > -1) {
+  // if (computerPickWord.indexOf(userInput) !== -1) {
+  //   boardGame[computerPickWord.indexOf(userInput)] = userInput;
+  //   displayBoardDiv.textContent = boardGame.join("");
+  //   rightGuessLetter = rightGuessLetter + userInput;
+  // }
 
-    boardGame[computerPickWord.indexOf(userInput)] = userInput;
-    displayBoardDiv.textContent = boardGame.join("");
-
-    rightGuessLetter = rightGuessLetter + userInput;
-
-    console.log("boom");
+  for (i = 0; i < computerPickWord.length; i++) {
+    if (computerPickWord[i] === userInput) {
+      boardGame[i] = userInput;
+    }
   }
 
+  displayBoardDiv.textContent = boardGame.join("");
+  rightGuessLetter = rightGuessLetter + userInput;
+  numberofGuessCount = numberofGuessCount;
 
 
   if (computerPickWord === rightGuessLetter) {
