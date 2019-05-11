@@ -23,7 +23,7 @@ var computerPickWord = neighborhoodOptions[computerRandIndex];
 console.log(computerPickWord);
 
 var numberofGuessCount = 9;
-numberofGuessCount = document.getElementById("guessesLeft");
+
 console.log(numberofGuessCount);
 
 
@@ -68,9 +68,6 @@ function resetGame() {
   console.log(computerPickWord);
 
   var numberofGuessCount = 9;
-  numberofGuessCount = document.getElementById("guessesLeft");
-  console.log(numberofGuessCount);
-
 
   var wins = 0;
 
@@ -86,6 +83,8 @@ function resetGame() {
   }
 
   var userInput = "";
+
+
 }
 
 
@@ -98,15 +97,17 @@ document.onkeyup = function (event) {
   var displayBoardDiv = document.getElementById("guesses");
 
   displayBoardDiv.textContent = boardGame.join("");
+
   // guessCountText.textContent = numberofGuessCount;  
 
 
   if (computerPickWord.indexOf(userInput) > -1) {
 
     boardGame[computerPickWord.indexOf(userInput)] = userInput;
-    displayBoardDiv.textContent = boardGame.join(" ");
+    displayBoardDiv.textContent = boardGame.join("");
 
     rightGuessLetter = rightGuessLetter + userInput;
+    console.log("boom");
   }
 
   if (computerPickWord === rightGuessLetter) {
@@ -114,17 +115,21 @@ document.onkeyup = function (event) {
     wins++;
     var winsText = document.getElementById("wins");
     winsText.textContent = "wins: " + wins;
+
     resetGame();
   }
   else {
     numberofGuessCount = numberofGuessCount - 1;
+    var guessCountDiv = document.getElementById("guessesLeft");
+    guessCountDiv.textContent = numberofGuessCount;
     wrongGuessLetter = wrongGuessLetter + userInput + ",";
     var outputWrongDiv = document.getElementById("lettersGuessed");
     outputWrongDiv.textContext = wrongGuessLetter;
+    console.log("BOOM");
   }
 
   if (numberofGuessCount === 0) {
-    loss++;
+    losses++;
     var lossesText = document.getElementById("losses");
     lossesText.textContent = "losses: " + losses;
     resetGame();
