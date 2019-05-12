@@ -5,25 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- used to make sure that page is standardized across all platforms and windows -->
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <!-- used for ease of placement of content within page -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- used for basic styling within page -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- google fonts used to connect logo with page fonts -->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Lalezar" rel="stylesheet">
- 
+
 
 
     <title>Chicago</title>
 </head>
 
 <body>
-
+    <!-- container for bootstrap that locks all the rows within -->
     <div class="container">
+        <!-- holds the major logo within the page -->
         <div class="row">
 
             <div class="col-md-12">
-                <img id=background src="./assets/images/Press Guess Express.png" alt="1">
+                <!-- logo created from https://cooltext.com/ -->
+                <img id=logo src="./assets/images/Press Guess Express.png" alt="1">
             </div>
         </div>
+        <!-- holds the instructions to begint eh game -->
         <div class="row">
             <div class="col-md-5">
                 <div></div>
@@ -32,6 +39,7 @@
                 <h1>Press anything key to get started!</h1>
             </div>
         </div>
+        <!-- holds the category of neighborhoods for the Chicago game -->
         <div class="row">
             <div class="col-md-6">
                 <div></div>
@@ -40,12 +48,14 @@
                 <h2>Explore a neighborhood!</h2>
             </div>
         </div>
+        <!-- blank div that will contain the word from the array in the JS file -->
         <div class="row">
             <div class="col-md-7"></div>
             <div class="col-md-5">
                 <div id="guesses"></div>
             </div>
         </div>
+        <!-- text that explains to the player how many guesses they have until the end of the game -->
         <div class="row">
             <div class="col-md-6"></div>
             <div class="col-md-6">
@@ -54,12 +64,14 @@
                 </div>
             </div>
         </div>
+        <!-- empty div that will contain the number of guesses left before the game is over -->
         <div class="row">
             <div class="col-md-8"></div>
             <div class="col-md-4">
                 <div id="guessesLeft"></div>
             </div>
         </div>
+        <!-- tet that explains to the play what letters they have already guessed -->
         <div class="row">
             <div class="col-md-7"></div>
             <div class="col-md-5">
@@ -68,22 +80,26 @@
                 </div>
             </div>
         </div>
+        <!-- displays the incorrect guesses already used within the game -->
         <div class="row">
             <div class="col-md-8"></div>
             <div idclass="col-md-4">
                 <div id="lettersGuessed"></div>
             </div>
         </div>
+        <!-- contains how many wins the player has acquired -->
         <div class="row">
             <div class="col-md-8"></div>
             <div class="col-md-2">
                 <div id="wins"></div>
             </div>
+            <!-- contains how many losses the player has acquired -->
             <div class="col-md-2">
                 <div id="losses"></div>
             </div>
         </div>
     </div>
+    <!-- linking the JS to the HTML so that all the functions work -->
     <script src="./assets/javascript/game.js"></script>
 </body>
 
