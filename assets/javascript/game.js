@@ -133,15 +133,16 @@ function playGame() {
 
   // if there are no longer any underscores within the boardgame array, then we win!
   if (boardGame.indexOf("_") === -1) {
+    displayBoardDiv.textContent = boardGame.join(" ");
 // adds 1 to the number of wins storage from above
     wins++;
 // post the number of wins within the HTML
     winsText.textContent = "wins: " + wins;
 
-    alert("WINNER WINNER CHICKEN DINNER");
+  
         // reset the whole game
     resetGame();
-
+    alert("WINNER WINNER CHICKEN DINNER");
   }
 
 
@@ -150,6 +151,7 @@ function playGame() {
 
     // using the indexof function, we are checking to see within the array of the word picked that no report back is -1, which means it was not found
     if (computerPickWord.indexOf(userInput) === -1) {
+     
 
       // this will subtract the number of guesses left for the user to use
       numberofGuessCount = numberofGuessCount - 1;
@@ -165,7 +167,7 @@ function playGame() {
      
 // if there number count goes down to 0 number of guesses left, the user will lose and the losses count increases by 1
       if (numberofGuessCount === 0) {
-
+        displayBoardDiv.textContent = boardGame.join(" ");
         losses++;
 // this will push the text to HTML
         lossesText.textContent = "losses: " + losses;
